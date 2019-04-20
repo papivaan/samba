@@ -2,32 +2,42 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
+.app {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-width: 100vw;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 10px;
+  padding-bottom: 100px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
-.App-link {
+.appLink {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+.appHeaderSpin {
+  animation: headerColorShift infinite 2s linear;
+}
+
+@keyframes headerSpin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes headerColorShift {
+  0% { color: #f60000; margin-left: 0; }
+  25% { color:  #ff8c00; margin-left: 500px; }
+  50% { color: #ffee00; margin-left: 1000px; }
+  750% { color: #4de94c; margin-left: 500px; }
+  100% { color: #3783ff; margin-left: 0; }
+}
+
+.smsTextArea {
+  width: 100%;
 }
