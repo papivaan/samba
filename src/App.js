@@ -10,6 +10,7 @@ class App extends Component {
     fact: null,
     message: null,
     messageResponse: null,
+    senderName: null,
   };
 
   getThisForThat = () => {
@@ -82,12 +83,18 @@ class App extends Component {
 
   handleSendSms = () => {
     const message = this.state.message;
-    axios.post('/sendSms', { message: message })
+    const sender = this.state.senderName;
+    axios.post('/sendSms', { message: message, sender: sender })
       .then(res => {
         console.log(res);
         this.setState({ messageResponse: res.data });
       })
       .catch(error => { console.log(error); });
+  }
+
+  handleSenderName = value => {
+    const name = value.target.value;
+    this.setState({ senderName: name });
   }
 
   render() {
@@ -137,8 +144,15 @@ class App extends Component {
           <Col>
             <input
               type="textarea"
+              placeholder="Syntymä_viesti"
               onChange={this.handleMessageChange}
               className={styles.smsTextArea}
+            />
+            <input
+              type="text"
+              placeholder="Sun nimi"
+              className={styles.nameTextArea}
+              onChange={this.handleSenderName}
             />
           </Col>
           <Col>
@@ -146,7 +160,8 @@ class App extends Component {
               disabled={
                 !this.state.message ||
                 !this.state.message.length === 0 ||
-                this.state.message.length > 40
+                this.state.message.length > 40 ||
+                !this.state.senderName
               }
               onClick={this.handleSendSms}
             >SEND MESSAGE</button>

@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+h1 {
+  font-size: 90px;
+}
 
 .app {
   background-color: #282c34;
@@ -40,4 +43,8 @@
 
 .smsTextArea {
   width: 100%;
+}
+
+.nameTextArea {
+  margin-top: 10px;
 }

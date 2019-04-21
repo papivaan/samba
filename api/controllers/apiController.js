@@ -3,17 +3,17 @@ const https = require('https')
 const querystring = require('querystring')
 exports.sendSms = function(req, res) {
     console.log(req.body);
-    sendSmsToElksApi(req.body.message);
-    res.send('Your message "' + req.body.message + '" was sent.');
+    sendSmsToElksApi(req.body.message, req.body.sender);
+    res.send(req.body.sender + ', your message "' + req.body.message + '" was sent.');
 }
 
-function sendSmsToElksApi (message) {
-    console.log(message);
+function sendSmsToElksApi (message, sender) {
+    console.log(message, sender);
 //  THIS SHIT WURKS
 //     const username = 'u967f2fe772a5315d1dfd82b16e9a36db'
 //     const password = '62DA6923CC09FF428404D084ACEF638B'
 //     const postFields = {
-//     from:    "juhlavieras",
+//     from:    sender,
 //     to:      "+358442536783", 
 //     message: message,
 //     }
