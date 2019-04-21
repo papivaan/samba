@@ -31,10 +31,16 @@ class App extends Component {
   };
 
   getNumberFact = number => {
-    console.log(number);
-    if (number === 25) {
-      const fakta = "25 is the age Juho is now. 25 is veri old,,, 25 is also the number of beers Juho has drinked before screwing yo momma!!1 ps. follow narborjar on Instagram";
-      this.setState({ fact: fakta });
+    if (number.toString() === "25") {
+      const facts = [
+        "25 is the age Juho is now. 25 is veri old,,,  ps. follow narborjar on Instagram",
+        "25 is the number of kasvatustieteilijät in Juho's haaremi",
+        "25 is, well,,, THE NUMBER.... ;) ;)",
+        "25 is the number of songs that dj narborjar cant't handle",
+        "25 is the number of counties that Juho can't place on the map in THE WHOLE WORLD"
+      ];
+      const fact = facts[Math.floor(Math.random()*facts.length)];
+      this.setState({ fact: fact });
     } else {
       axios
       .get('http://numbersapi.com/' + number,
@@ -134,11 +140,16 @@ class App extends Component {
                 >GET FACT</button>
               </Col>
             </Row>
-            <p>{this.state.fact}</p>
+            <p className={this.state.factNumber && this.state.factNumber.toString() === "25" ? styles.fact : undefined}>
+              {this.state.fact}
+            </p>
           </Col>
         </Row>
+        <br />
+        <br />
+        <br />
         <Row>
-        <Col md={{ span: 6, offset: 6 }}>
+        <Col md={{ span: 10, offset: 1 }}>
         <h3>Wish Juho häpiböörthdäi</h3>
         <Row>
           <Col>
@@ -167,7 +178,9 @@ class App extends Component {
             >SEND MESSAGE</button>
           </Col>
         </Row>
-        <p>{this.state.messageResponse}</p>
+        <p>
+          {this.state.messageResponse}
+        </p>
       </Col>
         </Row>
       </div>

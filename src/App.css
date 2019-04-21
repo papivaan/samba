@@ -33,6 +33,18 @@ h1 {
   }
 }
 
+.fact {
+  animation: factColorShift infinite 1s linear;
+}
+
+@keyframes factColorShift {
+  0% { color: #f60000; }
+  25% { color:  #ff8c00; }
+  50% { color: #ffee00; }
+  750% { color: #4de94c; }
+  100% { color: #3783ff; }
+}
+
 @keyframes headerColorShift {
   0% { color: #f60000; margin-left: 0; }
   25% { color:  #ff8c00; margin-left: 500px; }
