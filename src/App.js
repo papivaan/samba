@@ -3,6 +3,7 @@ import styles from './App.css';
 import SpotifyPlayer from 'react-spotify-player';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
+import classNames from 'classnames';
 
 class App extends Component {
   state = {
@@ -104,6 +105,13 @@ class App extends Component {
   }
 
   render() {
+    const classes = classNames(
+      styles.app,
+      { [styles.fact]:
+        this.state.fact &&
+        this.state.factNumber &&
+        this.state.factNumber.toString() === "25"
+      });
     // this.getHappyBirthDay('Paavo');
     const size = {
       width: '100%',
@@ -112,7 +120,7 @@ class App extends Component {
     const view = 'coverart'; // or 'coverart'
     const theme = 'black'; // or 'white'
     return (
-      <div className={styles.app}>
+      <div className={classes}>
         <Row>
           <Col md={9}>
             <h1 className={styles.appHeaderSpin}>Hello world</h1>
@@ -140,7 +148,7 @@ class App extends Component {
                 >GET FACT</button>
               </Col>
             </Row>
-            <p className={this.state.factNumber && this.state.factNumber.toString() === "25" ? styles.fact : undefined}>
+            <p>
               {this.state.fact}
             </p>
           </Col>

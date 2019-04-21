@@ -38,11 +38,11 @@ h1 {
 }
 
 @keyframes factColorShift {
-  0% { color: #f60000; }
-  25% { color:  #ff8c00; }
-  50% { color: #ffee00; }
-  750% { color: #4de94c; }
-  100% { color: #3783ff; }
+  0% { background-color: #f60000; }
+  25% { background-color:  #ff8c00; }
+  50% { background-color: #ffee00; }
+  750% { background-color: #4de94c; }
+  100% { background-color: #3783ff; }
 }
 
 @keyframes headerColorShift {
